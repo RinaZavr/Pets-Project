@@ -27,7 +27,7 @@ class TemplateInput extends StatelessWidget {
         child: TextField(
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: _nameInput,
+            hintText: _nameInput
           ),
           style: const TextStyle(
               fontFamily: 'Mulish',

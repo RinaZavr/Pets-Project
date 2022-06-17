@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/view/login_button.dart';
-import 'package:pets_project/login_screen/view/login_last.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
 
 class InputsRegView extends StatefulWidget {
@@ -27,11 +26,10 @@ class _InputsRegViewState extends State<InputsRegView> {
             child: TemplateInput("Пароль"),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 32),
+            padding: EdgeInsets.only(top: 32, bottom: 40),
             child: TemplateInput("Повторите пароль"),
           ),
           ButtonView("Зарегистрироваться"),
-          LastView()
         ],
       ),
     );

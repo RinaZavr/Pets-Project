@@ -14,6 +14,7 @@ class InputsLogView extends StatefulWidget {
 class _InputsLogViewState extends State<InputsLogView> {
   @override
   Widget build(BuildContext context) {
+    MediaQueryData mediaQuery = MediaQuery.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
@@ -28,13 +29,9 @@ class _InputsLogViewState extends State<InputsLogView> {
             child: ButtonView("Войти"),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 50),
+            padding: EdgeInsets.only(top: 50, bottom: 100),
             child: ForgetPassView(),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 160),
-            child: LastView(),
-          )
         ],
       ),
     );
