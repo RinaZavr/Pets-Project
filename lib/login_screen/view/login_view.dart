@@ -27,7 +27,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: EdgeInsets.only(top: 50),
                   child: ChoiceView(),
                 ),
-                InputsRegView(),
+                InputsLogView(),
                 LastView()
               ]
             ),

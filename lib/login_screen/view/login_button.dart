@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../consts/login_colors.dart';
+import '../consts/login_fonts.dart';
+
 class ButtonView extends StatelessWidget {
   final String _nameButton;
 
@@ -25,8 +28,8 @@ class ButtonView extends StatelessWidget {
         child: Text(
           _nameButton,
           style: const TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1),
-            fontFamily: 'Mulish',
+            color: constButtonTextColor,
+            fontFamily: constHeaderAndButtonFont,
             fontWeight: FontWeight.w700,
             fontSize: 16,
           ),
@@ -34,37 +37,9 @@ class ButtonView extends StatelessWidget {
       ),
       style: TextButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        backgroundColor: const Color.fromRGBO(53, 170, 255, 1),
+        backgroundColor: constButtonBgColor,
         alignment: Alignment.center
       ),
     );
-    // return Padding(
-    //   padding: EdgeInsets.symmetric(horizontal: mediaQuery.size.width * 0.3),
-    //   child: RawMaterialButton(
-    //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-    //     onPressed: () {
-    //       print('nice');
-    //     },
-    //     fillColor: const Color.fromRGBO(53, 170, 255, 1),
-    //     // padding: EdgeInsets.symmetric(
-    //     //     horizontal: mediaQuery.size.width * 0.08,
-    //     //     vertical: mediaQuery.size.height * 0.02),
-    //     child: Row(
-    //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-    //       children: [
-    //         const Image(image: AssetImage("img/paw.png")),
-    //         Text(
-    //           _nameButton,
-    //           style: const TextStyle(
-    //             color: Color.fromRGBO(255, 255, 255, 1),
-    //             fontFamily: 'Mulish-Italic',
-    //             fontWeight: FontWeight.w700,
-    //             fontSize: 16,
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //   ),
-    // );
   }
 }

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../consts/login_colors.dart';
+import '../consts/login_fonts.dart';
+
 class TemplateInput extends StatelessWidget {
   final String _nameInput;
   const TemplateInput(
@@ -11,11 +14,11 @@ class TemplateInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: const BoxDecoration(
-        color: Colors.white,
+        color: constInputBgColor,
         borderRadius: BorderRadius.all(Radius.circular(10)),
         boxShadow: [
           BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.08),
+            color: constInputShadowColor,
             offset: Offset(0, 1),
             blurRadius: 15,
             spreadRadius: 2,
@@ -30,10 +33,11 @@ class TemplateInput extends StatelessWidget {
             hintText: _nameInput
           ),
           style: const TextStyle(
-              fontFamily: 'Mulish',
+              fontFamily: constTextFont,
               fontWeight: FontWeight.w400,
               fontSize: 16,
-              color: Color.fromARGB(255, 0, 0, 0)),
+              color: constTextButtonBgColor,
+          ),
         ),
       ),
     );

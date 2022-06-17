@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/view/login_button.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
 
+import '../consts/login_strings.dart';
+
 class InputsRegView extends StatefulWidget {
   const InputsRegView({Key? key}) : super(key: key);
 
@@ -16,20 +18,20 @@ class _InputsRegViewState extends State<InputsRegView> {
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
         children: const [
-          TemplateInput("Имя"),
+          TemplateInput(constNameInput),
           Padding(
             padding: EdgeInsets.only(top: 32),
-            child: TemplateInput("Email"),
+            child: TemplateInput(constEmailInput),
           ),
           Padding(
             padding: EdgeInsets.only(top: 32),
-            child: TemplateInput("Пароль"),
+            child: TemplateInput(constPassInput),
           ),
           Padding(
             padding: EdgeInsets.only(top: 32, bottom: 40),
-            child: TemplateInput("Повторите пароль"),
+            child: TemplateInput(constRepeatPassInput),
           ),
-          ButtonView("Зарегистрироваться"),
+          ButtonView(constRegButton),
         ],
       ),
     );

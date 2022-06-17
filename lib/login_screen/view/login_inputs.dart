@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/view/login_button.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
+import '../consts/login_strings.dart';
 import 'login_forgetpass.dart';
 import 'login_last.dart';
 
@@ -19,14 +20,14 @@ class _InputsLogViewState extends State<InputsLogView> {
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
         children: const [
-          TemplateInput("Email"),
+          TemplateInput(constEmailInput),
           Padding(
             padding: EdgeInsets.only(top: 32),
-            child: TemplateInput("Пароль"),
+            child: TemplateInput(constPassInput),
           ),
           Padding(
             padding: EdgeInsets.only(top: 40),
-            child: ButtonView("Войти"),
+            child: ButtonView(constLogButton),
           ),
           Padding(
             padding: EdgeInsets.only(top: 50, bottom: 100),
