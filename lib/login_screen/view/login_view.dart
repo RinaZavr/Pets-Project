@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/state/login_choice_state.dart';
 import 'package:pets_project/login_screen/view/login_logo.dart';
 import 'package:pets_project/login_screen/view/login_choice.dart';
 import 'package:pets_project/login_screen/view/register_inputs.dart';
+import 'package:provider/provider.dart';
 import 'login_inputs.dart';
 import 'login_last.dart';
 
@@ -21,14 +23,21 @@ class _LoginViewState extends State<LoginView> {
         child: SafeArea(
           child: Center(
             child: Column(
-              children: const [
-                LogoView(),
-                Padding(
-                  padding: EdgeInsets.only(top: 50),
-                  child: ChoiceView(),
+              children: [
+                const LogoView(),
+                Consumer<LoginChoiceState>(
+                  builder: (context, value, child) {return
+                   Column(
+                     children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 50),
+                        child: ChoiceView(),
+                      ),
+                      value.choice == Choice.login ? const InputsLogView() : const InputsRegView(),
+                     ],
+                   );}
                 ),
-                InputsRegView(),
-                LastView()
+                const LastView()
               ]
             ),
           ),
