@@ -1,41 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/view/login_error_text.dart';
+
+import '../consts/login_styles.dart';
 
 class TemplateInput extends StatelessWidget {
   final String _nameInput;
-  const TemplateInput(
-    this._nameInput,
-    { Key? key }
-  ) : super(key: key);
+  final Function(String) changeInput;
+  final bool isError;
+  final String errorText;
+
+  const TemplateInput(this._nameInput, this.changeInput, this.isError, this.errorText,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(10)),
-        boxShadow: [
-          BoxShadow(
-            color: Color.fromRGBO(0, 0, 0, 0.08),
-            offset: Offset(0, 1),
-            blurRadius: 15,
-            spreadRadius: 2,
-          )
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(13),
-        child: TextField(
-          decoration: InputDecoration(
-            border: InputBorder.none,
-            hintText: _nameInput
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+                color: isError ? errorBorderColor : transparentBorderColor,
+                width: 2),
+            color: Colors.white,
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            boxShadow: const [
+              BoxShadow(
+                color: Color.fromRGBO(0, 0, 0, 0.08),
+                offset: Offset(0, 1),
+                blurRadius: 15,
+                spreadRadius: 2,
+              )
+            ],
           ),
-          style: const TextStyle(
-              fontFamily: 'Mulish',
-              fontWeight: FontWeight.w400,
-              fontSize: 16,
-              color: Color.fromARGB(255, 0, 0, 0)),
+          child: Padding(
+            padding: const EdgeInsets.all(13),
+            child: TextField(
+              decoration: InputDecoration(
+                  border: InputBorder.none, hintText: _nameInput),
+              style: const TextStyle(
+                  fontFamily: 'Mulish',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16,
+                  color: Color.fromARGB(255, 0, 0, 0)),
+              onChanged: ((text) => changeInput(text)),
+              obscureText:
+                  _nameInput == "Пароль" || _nameInput == "Повторите пароль"
+                      ? true
+                      : false,
+              textDirection: TextDirection.ltr,
+              textAlign: TextAlign.start,
+            ),
+          ),
         ),
-      ),
+        LoginErrorText(errorText, isError)
+      ],
     );
   }
 }
