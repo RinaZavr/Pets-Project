@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/consts/login_styles.dart';
 import 'package:pets_project/login_screen/view/login_error_text.dart';
-
-import '../consts/login_styles.dart';
 
 class TemplateInput extends StatelessWidget {
   final String _nameInput;
   final Function(String) changeInput;
   final bool isError;
   final String errorText;
+  final String controllerInput;
 
-  const TemplateInput(this._nameInput, this.changeInput, this.isError, this.errorText,
+  const TemplateInput(this._nameInput, this.changeInput, this.isError, this.errorText, this.controllerInput,
       {Key? key})
       : super(key: key);
 
@@ -51,6 +51,7 @@ class TemplateInput extends StatelessWidget {
                       : false,
               textDirection: TextDirection.ltr,
               textAlign: TextAlign.start,
+              controller: TextEditingController(text: controllerInput),
             ),
           ),
         ),

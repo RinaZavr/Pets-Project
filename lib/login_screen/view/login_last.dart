@@ -19,7 +19,7 @@ class LastView extends StatelessWidget {
           children: [
             const Text('Войти позже',
               style: TextStyle(
-                fontFamily: 'Mulish-Italic',
+                fontFamily: 'Mulish',
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
                 color: Colors.black),

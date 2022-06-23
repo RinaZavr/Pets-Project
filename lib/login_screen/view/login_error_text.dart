@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../consts/login_styles.dart';
+import 'package:pets_project/login_screen/consts/login_styles.dart';
 
 class LoginErrorText extends StatelessWidget {
   final String errorText;
