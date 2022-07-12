@@ -7,7 +7,7 @@ class LogoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 84),
+      padding: const EdgeInsets.only(top: 56),
       child: SvgPicture.asset("img/logo.svg"),
     );
   }

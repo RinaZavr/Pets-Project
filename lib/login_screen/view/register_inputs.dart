@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/state/login_state.dart';
 import 'package:pets_project/login_screen/view/login_button.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
+import 'package:provider/provider.dart';
 
 import '../consts/login_strings.dart';
 
@@ -14,24 +16,19 @@ class InputsRegView extends StatefulWidget {
 class _InputsRegViewState extends State<InputsRegView> {
   @override
   Widget build(BuildContext context) {
+    LoginState state = Provider.of<LoginState>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
-        children: const [
-          TemplateInput(constNameInput),
+        children: [
+          TemplateInput("Имя", state.changeName, state.isErrorName, "Поле не должно быть пустым", state.nameInput),
+          TemplateInput("Email", state.changeEmail, state.isErrorEmail, "Неверный формат email. Пример: name@gmail.com", state.emailInput),
+          TemplateInput("Пароль", state.changePass, state.isErrorPass, "Поле не должно быть пустым", state.passInput),
+          TemplateInput("Повторите пароль", state.repeatPass, state.isErrorRepPass, "Пароли не совпадают", state.repPassInput),
           Padding(
-            padding: EdgeInsets.only(top: 32),
-            child: TemplateInput(constEmailInput),
+            padding: const EdgeInsets.only(top: 22),
+            child: ButtonView("Зарегистрироваться", state.tryToSubmit),
           ),
-          Padding(
-            padding: EdgeInsets.only(top: 32),
-            child: TemplateInput(constPassInput),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 32, bottom: 40),
-            child: TemplateInput(constRepeatPassInput),
-          ),
-          ButtonView(constRegButton),
         ],
       ),
     );

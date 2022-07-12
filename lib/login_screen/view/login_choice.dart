@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/state/login_choice_state.dart';
+import 'package:provider/provider.dart';
 
 import '../consts/login_colors.dart';
 import '../consts/login_fonts.dart';
@@ -14,6 +16,7 @@ class ChoiceView extends StatefulWidget {
 class _ChoiceViewState extends State<ChoiceView> {
   @override
   Widget build(BuildContext context) {
+    LoginChoiceState state = Provider.of<LoginChoiceState>(context);
     MediaQueryData mediaQuery = MediaQuery.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -29,7 +32,7 @@ class _ChoiceViewState extends State<ChoiceView> {
                 ),
                 child: TextButton(
                   onPressed: () {
-                    print("nice");
+                    state.changeScreenLog();
                   },
                   style: TextButton.styleFrom(
                       fixedSize: const Size(124, 24),
@@ -47,7 +50,7 @@ class _ChoiceViewState extends State<ChoiceView> {
               ),
               TextButton(
                 onPressed: () {
-                  print("nice");
+                  state.changeScreenReg();
                 },
                 style: TextButton.styleFrom(
                     backgroundColor: constTextButtonBgColor,

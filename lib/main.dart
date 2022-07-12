@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pets_project/login_screen/view/login_view.dart';
+import 'package:pets_project/login_screen/view/auth_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: const LoginView(),
+      home: const AuthView(),
     );
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pets_project/login_screen/state/login_state.dart';
 import 'package:pets_project/login_screen/view/login_button.dart';
+import 'package:pets_project/login_screen/view/login_forgetpass.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
-import '../consts/login_strings.dart';
-import 'login_forgetpass.dart';
-import 'login_last.dart';
+import 'package:provider/provider.dart';
 
 class InputsLogView extends StatefulWidget {
   const InputsLogView({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class InputsLogView extends StatefulWidget {
 class _InputsLogViewState extends State<InputsLogView> {
   @override
   Widget build(BuildContext context) {
-    MediaQueryData mediaQuery = MediaQuery.of(context);
+    LoginState state = Provider.of<LoginState>(context);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
