@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../consts/login_colors.dart';
+import '../consts/login_fonts.dart';
+import '../consts/login_strings.dart';
+
 class ForgetPassView extends StatelessWidget {
   const ForgetPassView({Key? key}) : super(key: key);
 
@@ -11,18 +15,18 @@ class ForgetPassView extends StatelessWidget {
           print("nice");
         },
         style: TextButton.styleFrom(
-          backgroundColor: Colors.transparent,
+          backgroundColor: constTextButtonBgColor,
           alignment: Alignment.center),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: const [
             Text(
-              "Забыли пароль?",
+              constForgetButton,
               style: TextStyle(
-                fontFamily: 'Mulish-Italic',
+                fontFamily: constSecondaryButtonFont,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
-                color: Colors.black
+                color: constTextColor
               ),
             ),
           ]

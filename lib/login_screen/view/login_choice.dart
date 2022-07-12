@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
 import 'package:provider/provider.dart';
 
+import '../consts/login_colors.dart';
+import '../consts/login_fonts.dart';
+import '../consts/login_strings.dart';
+
 class ChoiceView extends StatefulWidget {
   const ChoiceView({Key? key}) : super(key: key);
 
@@ -23,8 +27,8 @@ class _ChoiceViewState extends State<ChoiceView> {
             children: [
               Theme(
                 data: ThemeData(
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
+                  splashColor: constTextButtonBgColor,
+                  highlightColor: constTextButtonBgColor,
                 ),
                 child: TextButton(
                   onPressed: () {
@@ -32,15 +36,15 @@ class _ChoiceViewState extends State<ChoiceView> {
                   },
                   style: TextButton.styleFrom(
                       fixedSize: const Size(124, 24),
-                      backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+                      backgroundColor: constTextButtonBgColor,
                       alignment: Alignment.center),
                   child: const Text(
-                    'Вход',
+                    constLoginHeader,
                     style: TextStyle(
-                        fontFamily: 'Mulish',
+                        fontFamily: constHeaderAndButtonFont,
                         fontWeight: FontWeight.w700,
                         fontSize: 16,
-                        color: Colors.black),
+                        color: constTextColor),
                   ),
                 ),
               ),
@@ -49,15 +53,15 @@ class _ChoiceViewState extends State<ChoiceView> {
                   state.changeScreenReg();
                 },
                 style: TextButton.styleFrom(
-                    backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+                    backgroundColor: constTextButtonBgColor,
                     alignment: Alignment.center),
                 child: const Text(
-                  'Регистрация',
+                  constRegisterHeader,
                   style: TextStyle(
-                      fontFamily: 'Mulish',
+                      fontFamily: constHeaderAndButtonFont,
                       fontWeight: FontWeight.w700,
                       fontSize: 16,
-                      color: Colors.black),
+                      color: constTextColor),
                 ),
               ),
             ],
@@ -68,14 +72,14 @@ class _ChoiceViewState extends State<ChoiceView> {
                 width: constraints.maxWidth / 2,
                 height: 5,
                 child: Container(
-                  color: const Color.fromRGBO(53, 170, 255, 1),
+                  color: constDividerColor,
                 ));
           }),
           const Divider(
             height: 1,
             thickness: 1,
             indent: 0,
-            color: Color.fromRGBO(53, 170, 255, 1),
+            color: constDividerColor,
           )
         ],
       ),

@@ -19,14 +19,17 @@ class _InputsLogViewState extends State<InputsLogView> {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 32),
       child: Column(
-        children: [
-          TemplateInput("Email", state.changeEmail, state.isErrorEmail, "Неверный формат email. Пример: name@gmail.com", state.emailInput),
-          TemplateInput("Пароль", state.changePass, state.isErrorPass, "Поле не должно быть пустым", state.passInput),
+        children: const [
+          TemplateInput(constEmailInput),
           Padding(
-            padding: const EdgeInsets.only(top: 22),
-            child: ButtonView("Войти", state.tryToSubmit),
+            padding: EdgeInsets.only(top: 32),
+            child: TemplateInput(constPassInput),
           ),
-          const Padding(
+          Padding(
+            padding: EdgeInsets.only(top: 40),
+            child: ButtonView(constLogButton),
+          ),
+          Padding(
             padding: EdgeInsets.only(top: 50, bottom: 100),
             child: ForgetPassView(),
           ),

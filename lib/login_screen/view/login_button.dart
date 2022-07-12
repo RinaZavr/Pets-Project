@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
 
+import '../consts/login_colors.dart';
+import '../consts/login_fonts.dart';
+
 class ButtonView extends StatelessWidget {
   final String _nameButton;
   final Function(Choice) submit;
@@ -25,17 +28,18 @@ class ButtonView extends StatelessWidget {
         child: Text(
           _nameButton,
           style: const TextStyle(
-            color: Color.fromRGBO(255, 255, 255, 1),
-            fontFamily: 'Mulish',
+            color: constButtonTextColor,
+            fontFamily: constHeaderAndButtonFont,
             fontWeight: FontWeight.w700,
             fontSize: 16,
           ),
         ),
       ),
       style: TextButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          backgroundColor: const Color.fromRGBO(53, 170, 255, 1),
-          alignment: Alignment.center),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        backgroundColor: constButtonBgColor,
+        alignment: Alignment.center
+      ),
     );
   }
 }

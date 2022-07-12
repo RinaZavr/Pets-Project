@@ -4,6 +4,8 @@ import 'package:pets_project/login_screen/view/login_button.dart';
 import 'package:pets_project/login_screen/view/login_templateInput.dart';
 import 'package:provider/provider.dart';
 
+import '../consts/login_strings.dart';
+
 class InputsRegView extends StatefulWidget {
   const InputsRegView({Key? key}) : super(key: key);
 
