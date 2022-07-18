@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/view/auth_view.dart';
 
+
 void main() {
   runApp(const MyApp());
 }

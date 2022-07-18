@@ -9,28 +9,31 @@ class ForgetPassView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IntrinsicWidth(
-      child: TextButton(
-        onPressed: () {
-          print("nice");
-        },
-        style: TextButton.styleFrom(
-          backgroundColor: constTextButtonBgColor,
-          alignment: Alignment.center),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text(
-              constForgetButton,
-              style: TextStyle(
-                fontFamily: constSecondaryButtonFont,
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: constTextColor
+    return Padding(
+      padding: const EdgeInsets.only(top: 50, bottom: 130),
+      child: IntrinsicWidth(
+        child: TextButton(
+          onPressed: () {
+            print("nice");
+          },
+          style: TextButton.styleFrom(
+            backgroundColor: constTextButtonBgColor,
+            alignment: Alignment.center),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                constForgetButton,
+                style: TextStyle(
+                  fontFamily: constSecondaryButtonFont,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: constTextColor
+                ),
               ),
-            ),
-          ]
-        )
+            ]
+          )
+        ),
       ),
     );
   }

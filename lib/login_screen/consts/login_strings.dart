@@ -8,3 +8,5 @@ const String constLogButton = "Войти";
 const String constRegButton = "Зарегистрироваться";
 const String constForgetButton = "Забыли пароль?";
 const String constLastButton = "Войти позже";
+const String constEmailError = "Неверный формат email. Пример: name@gmail.com";
+const String constPassError = "Поле не должно быть пустым";
