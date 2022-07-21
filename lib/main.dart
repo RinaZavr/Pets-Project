@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:pets_project/login_screen/api/login_network.dart';
 import 'package:pets_project/login_screen/view/auth_view.dart';
 
-
 void main() {
+  GetIt.instance.registerSingleton<NetworkService>(NetworkService());
   runApp(const MyApp());
 }
 
