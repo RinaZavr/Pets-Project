@@ -8,13 +8,13 @@ class LoginChoiceState extends ChangeNotifier {
   Choice get choice => _choice;
 
   void changeScreenReg() {
-    LoginState(false, false, false, false);
+    // LoginState(false, false, false, false);
     _choice = Choice.register;
     notifyListeners();
   }
 
   void changeScreenLog() {
-    LoginState(false, false, false, false);
+    // LoginState(false, false, false, false);
     _choice = Choice.login;
     notifyListeners();
   }
