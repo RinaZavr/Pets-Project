@@ -14,6 +14,7 @@ class ButtonView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
+    
     return TextButton.icon(
       onPressed: (() => submit(LoginChoiceState().choice)),
       icon: Padding(
@@ -24,7 +25,7 @@ class ButtonView extends StatelessWidget {
         padding: EdgeInsets.only(
             right: mediaQuery.size.width * 0.08,
             top: mediaQuery.size.height * 0.02,
-            bottom: mediaQuery.size.height * 0.02),
+            bottom: mediaQuery.size.height * 0.02,),
         child: Text(
           _nameButton,
           style: const TextStyle(
@@ -38,7 +39,7 @@ class ButtonView extends StatelessWidget {
       style: TextButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         backgroundColor: constButtonBgColor,
-        alignment: Alignment.center
+        alignment: Alignment.center,
       ),
     );
   }

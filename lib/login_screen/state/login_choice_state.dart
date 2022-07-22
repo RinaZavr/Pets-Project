@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pets_project/login_screen/state/login_state.dart';
 
 enum Choice { login, register }
 

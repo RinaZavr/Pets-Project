@@ -3,7 +3,6 @@ import 'package:http/http.dart' as http;
 
 class NetworkService {
   final String _address = "https://petsproject.issart.com/api/1.0.0";
-  final int _timeoutSeconds = 5;
 
   Future<void> healthCheck() async {
     var url = Uri.parse("$_address/tech/healthcheck");

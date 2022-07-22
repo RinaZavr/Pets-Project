@@ -39,17 +39,17 @@ class _LoginViewState extends State<LoginView> {
                       ChangeNotifierProvider<LoginState>(
                         create: (context)=>LoginState(GetIt.instance.get<NetworkService>()), 
                         child: value.choice == Choice.login ? const InputsLogView() 
-                          : const InputsRegView()),
+                          : const InputsRegView(),),
                      ],
                    );
-                  }
+                  },
                 ),
-                const LastView()
-              ]
+                const LastView(),
+              ],
             ),
           ),
         ),
-      )
+      ),
     );
   }
 }

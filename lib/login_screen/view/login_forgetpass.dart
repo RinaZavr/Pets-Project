@@ -18,7 +18,7 @@ class ForgetPassView extends StatelessWidget {
           },
           style: TextButton.styleFrom(
             backgroundColor: constTextButtonBgColor,
-            alignment: Alignment.center),
+            alignment: Alignment.center,),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
@@ -28,11 +28,11 @@ class ForgetPassView extends StatelessWidget {
                   fontFamily: constSecondaryButtonFont,
                   fontWeight: FontWeight.w600,
                   fontSize: 16,
-                  color: constTextColor
+                  color: constTextColor,
                 ),
               ),
-            ]
-          )
+            ],
+          ),
         ),
       ),
     );

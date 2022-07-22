@@ -10,6 +10,6 @@ class AuthView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<LoginChoiceState>(
-        create: (context) => LoginChoiceState(), child: const LoginView());
+        create: (context) => LoginChoiceState(), child: const LoginView(),);
   }
 }
