@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../consts/login_colors.dart';
-import '../consts/login_fonts.dart';
-import '../consts/login_strings.dart';
+import 'package:pets_project/login_screen/consts/login_colors.dart';
+import 'package:pets_project/login_screen/consts/login_fonts.dart';
+import 'package:pets_project/login_screen/consts/login_strings.dart';
 
 class LastView extends StatelessWidget {
   const LastView({Key? key}) : super(key: key);
