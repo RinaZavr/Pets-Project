@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
+import 'package:provider/provider.dart';
 
-import '../consts/login_colors.dart';
-import '../consts/login_fonts.dart';
+import 'package:pets_project/login_screen/consts/login_colors.dart';
+import 'package:pets_project/login_screen/consts/login_fonts.dart';
 
 class ButtonView extends StatelessWidget {
   final String _nameButton;
@@ -14,8 +15,10 @@ class ButtonView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
+    LoginChoiceState state = Provider.of<LoginChoiceState>(context);
+    
     return TextButton.icon(
-      onPressed: (() => submit(LoginChoiceState().choice)),
+      onPressed: (() => submit(state.choice)),
       icon: Padding(
         padding: EdgeInsets.only(left: mediaQuery.size.width * 0.08),
         child: SvgPicture.asset("img/paw.svg"),
@@ -24,7 +27,7 @@ class ButtonView extends StatelessWidget {
         padding: EdgeInsets.only(
             right: mediaQuery.size.width * 0.08,
             top: mediaQuery.size.height * 0.02,
-            bottom: mediaQuery.size.height * 0.02),
+            bottom: mediaQuery.size.height * 0.02,),
         child: Text(
           _nameButton,
           style: const TextStyle(
@@ -38,7 +41,7 @@ class ButtonView extends StatelessWidget {
       style: TextButton.styleFrom(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         backgroundColor: constButtonBgColor,
-        alignment: Alignment.center
+        alignment: Alignment.center,
       ),
     );
   }

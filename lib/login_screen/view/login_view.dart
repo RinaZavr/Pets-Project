@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
+import 'package:pets_project/login_screen/api/login_network.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
 import 'package:pets_project/login_screen/state/login_state.dart';
 import 'package:pets_project/login_screen/view/login_inputs.dart';
@@ -35,19 +37,19 @@ class _LoginViewState extends State<LoginView> {
                         child: ChoiceView(),
                       ),
                       ChangeNotifierProvider<LoginState>(
-                        create: (context)=>LoginState(false, false, false, false), 
+                        create: (context)=>LoginState(GetIt.instance.get<NetworkService>()), 
                         child: value.choice == Choice.login ? const InputsLogView() 
-                          : const InputsRegView()),
+                          : const InputsRegView(),),
                      ],
                    );
-                  }
+                  },
                 ),
-                const LastView()
-              ]
+                const LastView(),
+              ],
             ),
           ),
         ),
-      )
+      ),
     );
   }
 }

@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/consts/login_styles.dart';
 import 'package:pets_project/login_screen/view/login_error_text.dart';
 
-import '../consts/login_colors.dart';
-import '../consts/login_fonts.dart';
-
 class TemplateInput extends StatelessWidget {
   final String _nameInput;
   final Function(String) changeInput;
@@ -12,8 +9,9 @@ class TemplateInput extends StatelessWidget {
   final String errorText;
   final String controllerInput;
 
-  const TemplateInput(this._nameInput, this.changeInput, this.isError, this.errorText, this.controllerInput,
-      {Key? key})
+  const TemplateInput(this._nameInput, this.changeInput, this.isError,
+      this.errorText, this.controllerInput,
+      {Key? key,})
       : super(key: key);
 
   @override
@@ -25,7 +23,7 @@ class TemplateInput extends StatelessWidget {
           decoration: BoxDecoration(
             border: Border.all(
                 color: isError ? errorBorderColor : transparentBorderColor,
-                width: 2),
+                width: 2,),
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(10)),
             boxShadow: const [
@@ -34,19 +32,19 @@ class TemplateInput extends StatelessWidget {
                 offset: Offset(0, 1),
                 blurRadius: 15,
                 spreadRadius: 2,
-              )
+              ),
             ],
           ),
           child: Padding(
             padding: const EdgeInsets.all(13),
             child: TextField(
               decoration: InputDecoration(
-                  border: InputBorder.none, hintText: _nameInput),
+                  border: InputBorder.none, hintText: _nameInput,),
               style: const TextStyle(
                   fontFamily: 'Mulish',
                   fontWeight: FontWeight.w400,
                   fontSize: 16,
-                  color: Color.fromARGB(255, 0, 0, 0)),
+                  color: Color.fromARGB(255, 0, 0, 0),),
               onChanged: ((text) => changeInput(text)),
               obscureText:
                   _nameInput == "Пароль" || _nameInput == "Повторите пароль"
@@ -58,7 +56,7 @@ class TemplateInput extends StatelessWidget {
             ),
           ),
         ),
-        LoginErrorText(errorText, isError)
+        LoginErrorText(errorText, isError),
       ],
     );
   }

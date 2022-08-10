@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../consts/login_colors.dart';
-import '../consts/login_fonts.dart';
-import '../consts/login_strings.dart';
+import 'package:pets_project/login_screen/consts/login_colors.dart';
+import 'package:pets_project/login_screen/consts/login_fonts.dart';
+import 'package:pets_project/login_screen/consts/login_strings.dart';
 
 class LastView extends StatelessWidget {
   const LastView({Key? key}) : super(key: key);
@@ -17,7 +17,7 @@ class LastView extends StatelessWidget {
         },
         style: TextButton.styleFrom(
           backgroundColor: constTextButtonBgColor,
-          alignment: Alignment.center),
+          alignment: Alignment.center,),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -26,14 +26,14 @@ class LastView extends StatelessWidget {
                 fontFamily: constSecondaryButtonFont,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
-                color: constTextColor),
+                color: constTextColor,),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 12),
               child: SvgPicture.asset("img/last.svg"),
-            )
-          ]
-        )
+            ),
+          ],
+        ),
       ),
     );
   }
