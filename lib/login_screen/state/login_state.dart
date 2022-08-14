@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pets_project/login_screen/api/login_data.dart';
 import 'package:pets_project/login_screen/api/login_network.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
 
@@ -11,6 +12,7 @@ class LoginState extends ChangeNotifier {
   bool isErrorEmail = false;
   bool isErrorPass = false;
   bool isErrorRepPass = false;
+  Map<String, dynamic> submitData = {};
   NetworkService network;
   LoginState(this.network);
 
@@ -41,6 +43,9 @@ class LoginState extends ChangeNotifier {
     if (type == Choice.login) {
       isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
       isErrorPass = passInput.length > 8 ? false : true;
+      LoginData userData = LoginData(emailInput, passInput);
+      submitData = userData.toJson();
+      print(submitData);
     }
     network.healthCheck();
     notifyListeners();
