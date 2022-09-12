@@ -21,23 +21,20 @@ class NetworkService {
     http.Response resp = await http.post(url,
         body: jsonEncode(data.toJson()),
         headers: {"Content-type": "application/json",},);
-    // print("77777777777777777777");
-    // print(resp.statusCode);
-    // print(resp.body);
 
     return resp.statusCode == 200
         ? UserTokens.fromJson(jsonDecode(resp.body))
         : null;
   }
 
-  Future<void> register(RegisterData data) async {
-    // print(data.email + " " + data.password);
+  Future<UserTokens?> register(RegisterData data) async {
     var url = Uri.parse("$_address/register/email");
     http.Response resp = await http.post(url,
-        body: jsonEncode(data.toJson()),
-        headers: {"Content-type": "application/json",},);
-    // print("77777777777777777777");
-    // print(resp.statusCode);
-    // print(resp.body);
+      body: jsonEncode(data.toJson()),
+      headers: {"Content-type": "application/json",},);
+      
+    return resp.statusCode == 200
+        ? UserTokens.fromJson(jsonDecode(resp.body))
+        : null;
   }
 }

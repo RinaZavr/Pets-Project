@@ -8,8 +8,8 @@ import 'package:pets_project/login_screen/state/login_choice_state.dart';
 
 class LoginState extends ChangeNotifier {
   String nameInput = "";
-  String emailInput = "katrinbardal@gmail.com";
-  String passInput = "123456789";
+  String emailInput = "";
+  String passInput = "";
   String repPassInput = "";
   bool isErrorName = false;
   bool isErrorEmail = false;
@@ -20,10 +20,7 @@ class LoginState extends ChangeNotifier {
   UserLocalRepositories rep;
 
   LoginState(this.network, this.rep) {
-    UserTokens logData = rep.getTokens();
-    print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    print(logData.accessToken);
-    print(logData.refreshToken);
+    UserTokens? logData = rep.getTokens();
   }
 
   void changeName(String name) {
@@ -50,21 +47,25 @@ class LoginState extends ChangeNotifier {
       isErrorPass = passInput.length > 8 ? false : true;
       isErrorRepPass = passInput == repPassInput ? false : true;
 
-      await network.register(RegisterData(emailInput, passInput, nameInput));
+      final UserTokens? submitData =
+        await network.register(RegisterData(emailInput, passInput, nameInput));
+      switch (submitData) {
+        case null:
+          break;
+        default:
+          rep.saveTokens(submitData!);
+      }
     }
     if (type == Choice.login) {
       isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
       isErrorPass = passInput.length > 8 ? false : true;
       final UserTokens? submitData =
           await network.login(LoginData(emailInput, passInput));
-
-      // print(emailInput + " " + passInput);
-      // print(submitData);
-      // print(LoginData(emailInput, passInput));
-      if (submitData != null) {
-        // print("*********************");
-        // print(submitData);
-        rep.saveTokens(submitData);
+      switch (submitData) {
+        case null:
+          break;
+        default:
+          rep.saveTokens(submitData!);
       }
     }
     network.healthCheck();
