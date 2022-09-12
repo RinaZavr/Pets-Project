@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:pets_project/login_screen/api/login_network.dart';
+import 'package:pets_project/repositories/user_local_rep.dart';
+import 'package:pets_project/services/network_service.dart';
 import 'package:pets_project/login_screen/view/auth_view.dart';
 
-void main() {
-  GetIt.instance.registerSingleton<NetworkService>(NetworkService());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  UserLocalRepositories _rep = UserLocalRepositories();
+  await _rep.init();
+
+  GetIt.instance.registerSingleton<NetworkService>(NetworkService()); // использовать один экземпяр класса везде
+  GetIt.instance.registerSingleton<UserLocalRepositories>(_rep);
   runApp(const MyApp());
 }
 
