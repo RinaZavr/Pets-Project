@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pets_project/login_screen/consts/login_colors.dart';
 import 'package:pets_project/login_screen/consts/login_styles.dart';
+import 'package:pets_project/login_screen/state/login_state.dart';
+import 'package:provider/provider.dart';
 
 class AuthError extends StatelessWidget {
   final String _textError;
@@ -10,6 +12,8 @@ class AuthError extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
+    LoginState state = Provider.of<LoginState>(context);
+
 
     // return Scaffold(
     //   backgroundColor: constTextButtonBgColor,
@@ -40,7 +44,7 @@ class AuthError extends StatelessWidget {
                 ),
                 CloseButton(
                   color: constButtonTextColor,
-                  onPressed: () => Navigator.pushNamed(context, "/auth"),
+                  onPressed: () => state.closeErrorWindow(),
                 ),
               ],
             ),

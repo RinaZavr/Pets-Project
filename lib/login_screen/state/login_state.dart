@@ -76,4 +76,9 @@ class LoginState extends ChangeNotifier {
     network.healthCheck();
     notifyListeners();
   }
+
+  void closeErrorWindow() {
+    isErrorData = 200;
+    notifyListeners();
+  }
 }
