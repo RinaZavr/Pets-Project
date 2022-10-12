@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pets_project/login_screen/model/data_output.dart';
 import 'package:pets_project/login_screen/model/login_data.dart';
 import 'package:pets_project/login_screen/model/login_user_tokens.dart';
 import 'package:pets_project/login_screen/model/register_data.dart';
@@ -15,6 +16,7 @@ class LoginState extends ChangeNotifier {
   bool isErrorEmail = false;
   bool isErrorPass = false;
   bool isErrorRepPass = false;
+  int isErrorData = 200;
 
   NetworkService network;
   UserLocalRepositories rep;
@@ -40,34 +42,37 @@ class LoginState extends ChangeNotifier {
   }
 
   void tryToSubmit(Choice type) async {
-    RegExp templateEmail = RegExp(r'\w+@gmail.com');
-    if (type == Choice.register) {
-      isErrorName = nameInput.length > 3 ? false : true;
-      isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
-      isErrorPass = passInput.length > 8 ? false : true;
-      isErrorRepPass = passInput == repPassInput ? false : true;
+    RegExp templateEmail = RegExp(r'\w+@\w+.\w+');
+    switch (type) {
+      case Choice.register:
+        isErrorName = nameInput.length > 3 ? false : true;
+        isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
+        isErrorPass = passInput.length > 8 ? false : true;
+        isErrorRepPass = passInput == repPassInput ? false : true;
 
-      final UserTokens? submitData =
-        await network.register(RegisterData(emailInput, passInput, nameInput));
-      switch (submitData) {
-        case null:
-          break;
-        default:
-          rep.saveTokens(submitData!);
-      }
+        final DataOutput submitData = await network
+            .register(RegisterData(emailInput, passInput, nameInput));
+        isErrorData = submitData.code;
+
+        if (submitData.data != null) {
+          rep.saveTokens(submitData.data!);
+        }
+        break;
+
+      case Choice.login:
+        isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
+        isErrorPass = passInput.length > 8 ? false : true;
+
+        final DataOutput submitData =
+            await network.login(LoginData(emailInput, passInput));
+        isErrorData = submitData.code;
+
+        if (submitData.data != null) {
+          rep.saveTokens(submitData.data!);
+        }
+        break;
     }
-    if (type == Choice.login) {
-      isErrorEmail = templateEmail.hasMatch(emailInput) ? false : true;
-      isErrorPass = passInput.length > 8 ? false : true;
-      final UserTokens? submitData =
-          await network.login(LoginData(emailInput, passInput));
-      switch (submitData) {
-        case null:
-          break;
-        default:
-          rep.saveTokens(submitData!);
-      }
-    }
+    print(isErrorData);
     network.healthCheck();
     notifyListeners();
   }

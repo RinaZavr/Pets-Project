@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:pets_project/login_screen/model/data_output.dart';
 import 'package:pets_project/login_screen/model/login_data.dart';
 import 'package:pets_project/login_screen/model/login_user_tokens.dart';
 import 'package:pets_project/login_screen/model/register_data.dart';
@@ -11,30 +12,35 @@ class NetworkService {
   Future<void> healthCheck() async {
     var url = Uri.parse("$_address/tech/healthcheck");
     http.Response resp = await http.get(url);
-
-    print(resp.statusCode);
   }
 
-  Future<UserTokens?> login(LoginData data) async {
-    print(data.email + " " + data.password);
+  Future<DataOutput> login(LoginData data) async {
     var url = Uri.parse("$_address/login/email");
-    http.Response resp = await http.post(url,
-        body: jsonEncode(data.toJson()),
-        headers: {"Content-type": "application/json",},);
+    http.Response resp = await http.post(
+      url,
+      body: jsonEncode(data.toJson()),
+      headers: {
+        "Content-type": "application/json",
+      },
+    );
 
-    return resp.statusCode == 200
-        ? UserTokens.fromJson(jsonDecode(resp.body))
-        : null;
+    return resp.statusCode == 200 ? 
+      DataOutput(UserTokens.fromJson(jsonDecode(resp.body)), resp.statusCode) : 
+      DataOutput(null, resp.statusCode);
   }
 
-  Future<UserTokens?> register(RegisterData data) async {
+  Future<DataOutput> register(RegisterData data) async {
     var url = Uri.parse("$_address/register/email");
-    http.Response resp = await http.post(url,
+    http.Response resp = await http.post(
+      url,
       body: jsonEncode(data.toJson()),
-      headers: {"Content-type": "application/json",},);
-      
-    return resp.statusCode == 200
-        ? UserTokens.fromJson(jsonDecode(resp.body))
-        : null;
+      headers: {
+        "Content-type": "application/json",
+      },
+    );
+
+    return resp.statusCode == 200 ? 
+      DataOutput(UserTokens.fromJson(jsonDecode(resp.body)), resp.statusCode) : 
+      DataOutput(null, resp.statusCode);
   }
 }

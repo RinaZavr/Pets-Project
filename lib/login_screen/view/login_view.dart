@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get_it/get_it.dart';
-import 'package:pets_project/repositories/user_local_rep.dart';
-import 'package:pets_project/services/network_service.dart';
+import 'package:pets_project/login_screen/consts/auth_errors.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
 import 'package:pets_project/login_screen/state/login_state.dart';
+import 'package:pets_project/login_screen/view/auth_error.dart';
 import 'package:pets_project/login_screen/view/login_inputs.dart';
 import 'package:pets_project/login_screen/view/login_last.dart';
 import 'package:pets_project/login_screen/view/login_logo.dart';
 import 'package:pets_project/login_screen/view/login_choice.dart';
+import 'package:pets_project/login_screen/view/login_main_view.dart';
 import 'package:pets_project/login_screen/view/register_inputs.dart';
 import 'package:provider/provider.dart';
 
@@ -21,33 +21,23 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
+    LoginState state = Provider.of<LoginState>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset : false,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Center(
-            child: Column(
-              children: [
-                const LogoView(),
-                Consumer<LoginChoiceState>(
-                  builder: (context, value, child) {return
-                   Column(
-                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 44),
-                        child: ChoiceView(),
-                      ),
-                      ChangeNotifierProvider<LoginState>(
-                        create: (context)=>LoginState(GetIt.instance.get<NetworkService>(), GetIt.instance.get<UserLocalRepositories>()), 
-                        child: value.choice == Choice.login ? const InputsLogView() 
-                          : const InputsRegView(),),
-                     ],
-                   );
-                  },
-                ),
-                const LastView(),
-              ],
-            ),
+            child: state.isErrorData != 200? 
+              Stack(
+                children: <Widget>[
+                  const LoginMainView(),
+                  state.isErrorData == 404 ? const AuthError(constCode404)
+                    : state.isErrorData == 409 ? const AuthError(constCode409)
+                      : const AuthError(constCodeOther),
+                ],
+              )
+            : const LoginMainView(),
           ),
         ),
       ),

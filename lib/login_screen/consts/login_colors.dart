@@ -7,3 +7,4 @@ const Color constTextButtonBgColor = Colors.transparent;
 const Color constDividerColor = Color.fromRGBO(53, 170, 255, 1);
 const Color constInputBgColor = Color.fromRGBO(255, 255, 255, 1);
 const Color constInputShadowColor = Color.fromRGBO(0, 0, 0, 0.08);
+const Color constErrorBg = Color.fromRGBO(233, 172, 92, 1);

@@ -39,7 +39,8 @@ class TemplateInput extends StatelessWidget {
             padding: const EdgeInsets.all(13),
             child: TextField(
               decoration: InputDecoration(
-                  border: InputBorder.none, hintText: _nameInput,),
+                  border: InputBorder.none, 
+                  hintText: _nameInput,),
               style: const TextStyle(
                   fontFamily: 'Mulish',
                   fontWeight: FontWeight.w400,

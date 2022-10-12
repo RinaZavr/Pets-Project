@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:pets_project/list_screen/view/list_view.dart';
 import 'package:pets_project/repositories/user_local_rep.dart';
 import 'package:pets_project/services/network_service.dart';
 import 'package:pets_project/login_screen/view/auth_view.dart';
@@ -20,10 +21,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Pets',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
+      // title: 'Pets',
+      // theme: ThemeData(
+      //   primarySwatch: Colors.red,
+      // ),
+      routes: {
+        "/auth":(context) => const AuthView(),
+        "/list":(context) => const AnnouncementListView(),
+      },
       home: const AuthView(),
     );
   }

@@ -13,20 +13,23 @@ class LastView extends StatelessWidget {
     return IntrinsicWidth(
       child: TextButton(
         onPressed: () {
-          print("nice");
+          Navigator.of(context).pushNamed("/list");
         },
         style: TextButton.styleFrom(
           backgroundColor: constTextButtonBgColor,
-          alignment: Alignment.center,),
+          alignment: Alignment.center,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(constLastButton,
+            const Text(
+              constLastButton,
               style: TextStyle(
                 fontFamily: constSecondaryButtonFont,
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
-                color: constTextColor,),
+                color: constTextColor,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.only(left: 12),
