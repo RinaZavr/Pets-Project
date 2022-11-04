@@ -15,22 +15,15 @@ class AnnouncementListView extends StatefulWidget {
 
 class _AnnouncementListViewState extends State<AnnouncementListView> {
   int _selectedIndex = 0;
-  
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   final List _widgetSelect = const [
     Text("Ads"),
     Text("New ad"),
     Text("Profile"),
   ];
-  
+
   @override
   Widget build(BuildContext context) {
-
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -41,7 +34,7 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
             indicatorColor: Colors.white,
             tabs: [
               Tab(text: constMenuItemFirst),
-              Tab(text: constMenuItemSecond), 
+              Tab(text: constMenuItemSecond),
               Tab(text: constMenuItemThird),
               Tab(text: constMenuItemFouth),
             ],
@@ -51,33 +44,40 @@ class _AnnouncementListViewState extends State<AnnouncementListView> {
         bottomNavigationBar: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: _selectedIndex == 0? 
-                    SvgPicture.asset(firstActiveMenuImg): SvgPicture.asset(firstInactiveMenuImg),
+              icon: _selectedIndex == 0
+                  ? SvgPicture.asset(firstActiveMenuImg)
+                  : SvgPicture.asset(firstInactiveMenuImg),
               label: constDownMenuItemOne,
             ),
             BottomNavigationBarItem(
-              icon: _selectedIndex == 1? 
-                    SvgPicture.asset(secondActiveMenuImg): SvgPicture.asset(secondInactiveMenuImg),
+              icon: _selectedIndex == 1
+                  ? SvgPicture.asset(secondActiveMenuImg)
+                  : SvgPicture.asset(secondInactiveMenuImg),
               label: constDownMenuItemTwo,
             ),
             BottomNavigationBarItem(
-              icon: _selectedIndex == 2? 
-                    SvgPicture.asset(thirdActiveMenuImg): SvgPicture.asset(thirdInactiveMenuImg),
+              icon: _selectedIndex == 2
+                  ? SvgPicture.asset(thirdActiveMenuImg)
+                  : SvgPicture.asset(thirdInactiveMenuImg),
               label: constDownMenuItemThree,
             ),
           ],
           backgroundColor: menuColor,
           currentIndex: _selectedIndex,
           selectedFontSize: 12,
-          selectedLabelStyle: TextStyle(
+          selectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.w800,
           ),
-          unselectedLabelStyle: TextStyle(
+          unselectedLabelStyle: const TextStyle(
             fontWeight: FontWeight.w400,
           ),
           unselectedItemColor: Colors.white,
           selectedItemColor: Colors.white,
-          onTap: _onItemTapped,
+          onTap: (int index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
         ),
       ),
     );
