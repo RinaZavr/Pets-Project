@@ -21,15 +21,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: 'Pets',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.red,
-      // ),
       routes: {
         "/auth":(context) => const AuthView(),
         "/list":(context) => const AnnouncementListView(),
       },
-      home: const AuthView(),
+      home: const AnnouncementListView(),
     );
   }
 }

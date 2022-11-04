@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pets_project/login_screen/consts/auth_errors.dart';
 import 'package:pets_project/login_screen/state/login_choice_state.dart';
-import 'package:pets_project/login_screen/state/login_state.dart';
-import 'package:pets_project/login_screen/view/auth_error.dart';
-import 'package:pets_project/login_screen/view/temp_auth_error.dart';
 import 'package:provider/provider.dart';
 
 import 'package:pets_project/login_screen/consts/login_colors.dart';
@@ -20,21 +16,10 @@ class ButtonView extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     LoginChoiceState state = Provider.of<LoginChoiceState>(context);
-    LoginState stateMain = Provider.of<LoginState>(context);
 
     return TextButton.icon(
       onPressed: () {
         submit(state.choice);
-        // if (stateMain.isErrorData != 200) {
-        //   showDialog<String>(
-        //       context: context,
-        //       builder: (BuildContext context) => stateMain.isErrorData == 404
-        //           ? const AuthError(constCode404)
-        //           : stateMain.isErrorData == 409
-        //               ? const AuthError(constCode409)
-        //               : const AuthError(constCodeOther),
-        //   );
-        // }
       },
       icon: Padding(
         padding: EdgeInsets.only(left: mediaQuery.size.width * 0.08),

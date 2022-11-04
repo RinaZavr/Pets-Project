@@ -8,7 +8,6 @@ import 'package:pets_project/login_screen/view/login_last.dart';
 import 'package:pets_project/login_screen/view/login_logo.dart';
 import 'package:pets_project/login_screen/view/login_choice.dart';
 import 'package:pets_project/login_screen/view/login_main_view.dart';
-import 'package:pets_project/login_screen/view/register_inputs.dart';
 import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
