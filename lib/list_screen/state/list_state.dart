@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
-class LoginState extends ChangeNotifier {
-  
+class ListState extends ChangeNotifier {
+  int selectedIndex = 0;
+
+  void changeIndex(int index) {
+    selectedIndex = index;
+    notifyListeners();
+  }
 }

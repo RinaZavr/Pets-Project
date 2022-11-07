@@ -1,85 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pets_project/list_screen/consts/list_colors.dart';
-import 'package:pets_project/list_screen/consts/list_images.dart';
 import 'package:pets_project/list_screen/consts/list_strings.dart';
-import 'package:pets_project/list_screen/view/list_downmenu.dart';
-import 'package:pets_project/list_screen/view/list_items.dart';
+import 'package:pets_project/list_screen/state/list_state.dart';
+import 'package:pets_project/list_screen/view/list_bottombar.dart';
+import 'package:provider/provider.dart';
 
-class AnnouncementListView extends StatefulWidget {
-  const AnnouncementListView({Key? key}) : super(key: key);
+class ListView extends StatefulWidget {
+  const ListView({Key? key}) : super(key: key);
 
   @override
-  State<AnnouncementListView> createState() => _AnnouncementListViewState();
+  State<ListView> createState() => _ListViewState();
 }
 
-class _AnnouncementListViewState extends State<AnnouncementListView> {
-  int _selectedIndex = 0;
-
-  final List _widgetSelect = const [
-    Text("Ads"),
-    Text("New ad"),
-    Text("Profile"),
-  ];
-
+class _ListViewState extends State<ListView> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: 4,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: menuColor,
-          bottom: const TabBar(
-            indicatorWeight: 5,
-            indicatorColor: Colors.white,
-            tabs: [
-              Tab(text: constMenuItemFirst),
-              Tab(text: constMenuItemSecond),
-              Tab(text: constMenuItemThird),
-              Tab(text: constMenuItemFouth),
-            ],
-          ),
-        ),
-        body: _widgetSelect.elementAt(_selectedIndex),
-        bottomNavigationBar: BottomNavigationBar(
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 0
-                  ? SvgPicture.asset(firstActiveMenuImg)
-                  : SvgPicture.asset(firstInactiveMenuImg),
-              label: constDownMenuItemOne,
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 1
-                  ? SvgPicture.asset(secondActiveMenuImg)
-                  : SvgPicture.asset(secondInactiveMenuImg),
-              label: constDownMenuItemTwo,
-            ),
-            BottomNavigationBarItem(
-              icon: _selectedIndex == 2
-                  ? SvgPicture.asset(thirdActiveMenuImg)
-                  : SvgPicture.asset(thirdInactiveMenuImg),
-              label: constDownMenuItemThree,
-            ),
+    ListState state = Provider.of<ListState>(context);
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: menuColor,
+        bottom: const TabBar(
+          indicatorWeight: 5,
+          indicatorColor: Colors.white,
+          tabs: [
+            Tab(text: constMenuItemFirst),
+            Tab(text: constMenuItemSecond),
+            Tab(text: constMenuItemThird),
+            Tab(text: constMenuItemFouth),
           ],
-          backgroundColor: menuColor,
-          currentIndex: _selectedIndex,
-          selectedFontSize: 12,
-          selectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.w800,
-          ),
-          unselectedLabelStyle: const TextStyle(
-            fontWeight: FontWeight.w400,
-          ),
-          unselectedItemColor: Colors.white,
-          selectedItemColor: Colors.white,
-          onTap: (int index) {
-            setState(() {
-              _selectedIndex = index;
-            });
-          },
         ),
       ),
+      body: widgetSelect.elementAt(state.selectedIndex),
+      bottomNavigationBar: const ListBottomBar(),
     );
   }
 }

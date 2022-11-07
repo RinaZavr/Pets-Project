@@ -5,3 +5,11 @@ const TextStyle upMenuTextStyle = TextStyle(
   fontWeight: FontWeight.w400,
   fontSize: 16,
 );
+
+const TextStyle selectedLabelStyle = TextStyle(
+  fontWeight: FontWeight.w800,
+);
+
+const TextStyle unselectedLabelStyle = TextStyle(
+  fontWeight: FontWeight.w400,
+);
