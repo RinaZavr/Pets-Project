@@ -18,8 +18,8 @@ class ListBottomBar extends StatefulWidget {
 class _ListBottomBarState extends State<ListBottomBar> {
   @override
   Widget build(BuildContext context) {
-    int _selectedIndex = 0;
     ListState state = Provider.of<ListState>(context);
+    int _selectedIndex = state.selectedIndex;
 
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[

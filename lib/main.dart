@@ -23,9 +23,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       routes: {
         "/auth":(context) => const AuthView(),
-        "/list":(context) => const AnnouncementListView(),
+        "/list":(context) => const AnnouncementListMainView(),
       },
-      home: const AnnouncementListView(),
+      home: const AnnouncementListMainView(),
     );
   }
 }

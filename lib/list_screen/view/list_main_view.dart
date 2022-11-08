@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:pets_project/list_screen/state/list_state.dart';
+import 'package:pets_project/list_screen/view/list_view.dart';
 import 'package:provider/provider.dart';
 
-class AnnouncementListView extends StatefulWidget {
-  const AnnouncementListView({Key? key}) : super(key: key);
+class AnnouncementListMainView extends StatefulWidget {
+  const AnnouncementListMainView({Key? key}) : super(key: key);
 
   @override
-  State<AnnouncementListView> createState() => _AnnouncementListViewState();
+  State<AnnouncementListMainView> createState() => _AnnouncementListMainViewState();
 }
 
-class _AnnouncementListViewState extends State<AnnouncementListView> {
+class _AnnouncementListMainViewState extends State<AnnouncementListMainView> {
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ListState>(
       create: (context)=>ListState(),
-      child: ListView(),
+      child: const AnnouncementListView(),
     );
   }
 }
