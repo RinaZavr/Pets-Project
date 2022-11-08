@@ -14,10 +14,6 @@ class AuthError extends StatelessWidget {
     MediaQueryData mediaQuery = MediaQuery.of(context);
     LoginState state = Provider.of<LoginState>(context);
 
-
-    // return Scaffold(
-    //   backgroundColor: constTextButtonBgColor,
-    //   body: 
     return Center(
       child: Container(
           alignment: Alignment.topCenter,
