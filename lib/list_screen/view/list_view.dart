@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pets_project/list_screen/consts/list_colors.dart';
 import 'package:pets_project/list_screen/consts/list_strings.dart';
 import 'package:pets_project/list_screen/state/list_state.dart';
 import 'package:pets_project/list_screen/view/list_bottombar.dart';

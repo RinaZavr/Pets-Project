@@ -36,7 +36,7 @@ class _ListBottomBarState extends State<ListBottomBar> {
           label: constDownMenuItemTwo,
         ),
         BottomNavigationBarItem(
-          icon: _selectedIndex == profileTabIndex
+          icon: _selectedIndex == profileTabIndex || _selectedIndex == profileEditTabIndex
               ? SvgPicture.asset(thirdActiveMenuImg)
               : SvgPicture.asset(thirdInactiveMenuImg),
           label: constDownMenuItemThree,

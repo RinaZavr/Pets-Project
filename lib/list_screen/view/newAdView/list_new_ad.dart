@@ -10,6 +10,6 @@ class ListAddAd extends StatefulWidget {
 class _ListAddAdState extends State<ListAddAd> {
   @override
   Widget build(BuildContext context) {
-    return Text("New ad");
+    return const Text("New ad");
   }
 }
